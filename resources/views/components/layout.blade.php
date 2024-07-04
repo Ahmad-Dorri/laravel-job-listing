@@ -14,20 +14,39 @@
         <div>
             <x-logo/>
         </div>
-        <div class="flex gap-4 font-bold text-lg">
-            <x-nav-link href="#" :active="request()->is('/jobs')">Jobs</x-nav-link>
-            <x-nav-link href="#" :active="request()->is('/careers')">Careers</x-nav-link>
-            <x-nav-link href="#" :active="request()->is('/salaries')">Salaries</x-nav-link>
-            <x-nav-link href="#" :active="request()->is('/companies')">Companies</x-nav-link>
+        <div class="hidden md:flex gap-4 font-bold text-lg">
+            <x-nav-link href="/jobs" :active="request()->is('/jobs')">Jobs</x-nav-link>
+            <x-nav-link href="/careers" :active="request()->is('/careers')">Careers</x-nav-link>
+            <x-nav-link href="/salaries" :active="request()->is('/salaries')">Salaries</x-nav-link>
+            <x-nav-link href="/companies" :active="request()->is('/companies')">Companies</x-nav-link>
         </div>
-        <div>
-            <x-button mode="link" href="#" >
+        <div class="hidden md:block">
+            <x-button mode="link" href="/jobs/create" class="text-nowrap">
                 Post a job
             </x-button>
         </div>
+        <div class="block md:hidden" x-data="menu(false)">
+            <div @click="toggle">
+                <x-iconic-menu class="w-6 h-6 cursor-pointer"/>
+            </div>
+            <div class="z-20 absolute right-0 top-0 h-screen transition duration-500 w-[50vw] bg-slate-900 flex flex-col justify-between py-10" x-show="open">
+                <div class="flex flex-col gap-4 font-bold text-lg">
+                    <x-nav-link href="/jobs" :active="request()->is('/jobs')">Jobs</x-nav-link>
+                    <x-nav-link href="/careers" :active="request()->is('/careers')">Careers</x-nav-link>
+                    <x-nav-link href="/salaries" :active="request()->is('/salaries')">Salaries</x-nav-link>
+                    <x-nav-link href="/companies" :active="request()->is('/companies')">Companies</x-nav-link>
+                </div>
+                <div class="w-fit mx-auto" >
+                    <x-button mode="link" href="/jobs/create" class="text-nowrap mx-auto">
+                        Post a job
+                    </x-button>
+                </div>
+            </div>
+            <div @click="toggle" x-show="open" class="z-10 w-screen h-screen bg-black/50 backdrop-blur-md absolute left-0 right-0 top-0 bottom-0" />
+        </div>
     </nav>
 </div>
-<main>
+<main class="mt-10 container mx-auto px-4">
     {{ $slot }}
 </main>
 </body>

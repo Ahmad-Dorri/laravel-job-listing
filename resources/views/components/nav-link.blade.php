@@ -1,7 +1,7 @@
 @props(['active'])
 
 @php
-    $defaultClasses = "px-4 py-2 rounded-lg transition-colors duration-300 cursor-pointer ";
+    $defaultClasses = "px-4 py-2 rounded-lg transition-colors duration-300 cursor-pointer text-center md:text-left";
     if($active) {
         $classes = $defaultClasses . "bg-white/40 hover:bg-white/40";
     } else {
