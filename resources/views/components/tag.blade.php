@@ -3,13 +3,13 @@
 @php
     switch ($size) {
         case 'sm':
-            $classes = 'text-sm font-bold bg-slate-400 rounded-3xl px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2';
+            $classes = 'text-2xs font-bold bg-slate-800 rounded-3xl px-1 py-0.5 sm:px-1.5 sm:py-1 md:px-2 md:py-1';
             break;
             case 'md':
-                $classes = 'text-base font-bold bg-slate-400 rounded-3xl px-6 py-3';
+                $classes = 'text-xs font-bold bg-slate-800 rounded-3xl px-3 py-1.5';
                 break;
                 case 'lg':
-                    $classes = 'text-lg font-bold bg-slate-400 rounded-3xl px-8 py-4';
+                    $classes = 'text-sm font-bold bg-slate-800 rounded-3xl px-4 py-2';
                     break;
     }
 @endphp

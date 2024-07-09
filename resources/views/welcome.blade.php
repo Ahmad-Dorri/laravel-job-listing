@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="flex flex-col gap-12" >
+    <div class="flex flex-col gap-12">
         <section>
             <x-title>Featured Jobs</x-title>
             <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -10,7 +10,7 @@
         </section>
         <section>
             <x-title>Tags</x-title>
-            <div class="flex flex-wrap gap-2 items-center w-full" >
+            <div class="flex flex-wrap gap-2 items-center w-full">
                 <x-tag size="lg">tag1</x-tag>
                 <x-tag size="lg">tag2</x-tag>
                 <x-tag size="lg">tag3</x-tag>
@@ -24,6 +24,11 @@
         </section>
         <section>
             <x-title>Recent Jobs</x-title>
+            <div class="mt-6 space-y-6" >
+                <x-job-card-wide/>
+                <x-job-card-wide/>
+                <x-job-card-wide/>
+            </div>
         </section>
     </div>
 </x-layout>

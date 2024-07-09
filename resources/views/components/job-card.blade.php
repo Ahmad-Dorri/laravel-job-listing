@@ -10,6 +10,6 @@
             <x-tag href="#">tag2</x-tag>
             <x-tag href="#">tag3</x-tag>
         </div>
-        <img src="http://placehold.it/42/42"/>
+    <x-employer-photo :width="42" />
     </div>
 </div>
