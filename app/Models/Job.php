@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Job extends Model
 {
@@ -17,8 +17,14 @@ class Job extends Model
         return $this->belongsTo(Employer::class);
     }
 
-    public function tags(): HasMany
+    public function tag(string $name): void
     {
-        return $this->hasMany(Tag::class);
+        $tag = Tag::query()->firstOrCreate(['name' => $name]);
+        $this->tags()->attach($tag);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
